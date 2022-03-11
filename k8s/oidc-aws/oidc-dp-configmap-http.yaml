@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: oidc-discovery-provider
+  namespace: spire
+data:
+  oidc-discovery-provider.conf: |
+    log_level = "INFO"
+    # TODO: Replace MY_DISCOVERY_DOMAIN with the FQDN of the Discovery Provider that you will configure in DNS
+    domain = "MY_DISCOVERY_DOMAIN"
+    insecure_addr = "0.0.0.0:10443"
+    allow_insecure_scheme = true
+    registration_api {
+        socket_path = "/run/spire/sockets/registration.sock"
+    }

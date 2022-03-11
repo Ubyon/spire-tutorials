@@ -1,0 +1,24 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: spire-pv-0
+spec:
+  storageClassName: local
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  claimRef:
+    name: spire-data-spire-server-0
+    namespace: spire
+  local:
+    path: "/mnt/spire0"
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/node
+          operator: In
+          values:
+          - data-0

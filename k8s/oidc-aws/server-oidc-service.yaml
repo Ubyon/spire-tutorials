@@ -12,3 +12,6 @@ spec:
     - name: https
       port: 443
       targetPort: spire-oidc-port
+    - name: http
+      port: 10443
+      targetPort: spire-oidc-port-http

@@ -59,6 +59,8 @@ spec:
           ports:
           - containerPort: 443
             name: spire-oidc-port
+          - containerPort: 10443
+            name: spire-oidc-port-http
           volumeMounts:
           - name: spire-server-socket
             mountPath: /run/spire/sockets
